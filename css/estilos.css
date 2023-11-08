@@ -1,0 +1,19 @@
+.lado-izquierdo{
+    background-color: #0096ff22;
+}
+/* Agrega estas reglas de estilo en tu archivo CSS */
+.content-wrapper {
+    background: white !important;
+}
+
+.navSide{
+    margin-top: 30px;
+}
+
+.parrafo-perfiles{
+    margin-top: 3rem;
+}
+
+.formularioEdit{
+    margin-top: 10rem;
+}
