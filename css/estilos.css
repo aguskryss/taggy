@@ -17,3 +17,42 @@
 .formularioEdit{
     margin-top: 10rem;
 }
+.formularioContrasena{
+    margin-top: 10rem;
+}
+
+.boton-actualizar-datos{
+    background-color: #040240 !important;
+    color: white !important;
+    font-size: 1.2rem !important;
+  }
+  .boton-actualizar-datos:hover{
+    background-color: white !important;
+    color: #040240 !important;
+    border: 1px solid #040240 !important;
+  }
+  .boton-actualizar-contrasena{
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+    background-color: #0096ff !important;
+    color: white !important;
+    font-size: 1.2rem !important;
+  }
+  .boton-actualizar-contrasena:hover{
+    background-color: white !important;
+    color: #0096ff !important;
+    border: 1px solid #0096ff !important;
+  }
+  .formulario input{
+    border: 1px solid #0096ff;
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+.formulario label{
+  font-weight: 400;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color:#040240;
+}

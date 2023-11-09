@@ -1,6 +1,7 @@
 <?php
   session_start();
 //obtener variables
+  $usuarioId = $_SESSION['idUsuario'];
   $nombre = $_SESSION['nombre']; 
   $email = $_SESSION['email'];
   $telefono = $_SESSION['telefono'];
@@ -24,10 +25,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
+
+   <!-- Toastr -->
+    <link rel="stylesheet" href="plugins/toastr/toastr.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css" crossorigin="anonymous">
     <link rel="stylesheet" href="css/estilos.css">
+    
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Hoja de estilos de las banderas -->
+    <!-- Hoja de estilos de las banderas -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+
+
+
 
 </head>
