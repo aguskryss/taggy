@@ -43,10 +43,7 @@ require_once "headerpanel.php";
                         <div class="col-lg-6">
                             <form id="cambiar-contrasena">
                                 <!-- Input hidden con un valor -->
-                                <div class="form-group formulario">
-                                    <label for="contrasenaActual">Contraseña Actual</label>
-                                    <input type="password" class="form-control" id="contrasenaActual" name="contrasenaActual">
-                                </div>
+                                <input type="hidden" name="idUsuario" value="<?php echo $usuarioId ?>">
                                 <div class="form-group formulario">
                                     <label for="nuevaContrasena">Nueva Contraseña</label>
                                     <input type="password" class="form-control" id="nuevaContrasena" name="nuevaContrasena">
@@ -121,6 +118,35 @@ require_once "includes/footer.php";
                         toastr.options.closeButton = true;
                       }else{
                         toastr.error('ERROR');
+                        toastr.options.closeButton = true;
+                      }
+
+                  }
+            });
+          //console.log(formData);
+    });
+    
+    $("#cambiar-contrasena").submit(function(e){
+      e.preventDefault();
+          var formData = $("#cambiar-contrasena").serialize();
+          $.ajax({
+                  type: "POST",
+                  url: "logica/cambiarContrasena.php", // Nombre del nuevo script PHP para manejar el registro
+                  data: formData,
+                  success: function(response) {
+                      // Mostrar mensaje de éxito o error
+                      //window.location.href = "panel";
+                      console.log(response);
+                      if(response == "success"){
+                        toastr.success('Contraseña actualizada correctamente!');
+                        toastr.options.closeButton = true;
+                        $(".formularioEdit").show();
+                        $(".formularioContrasena").hide();
+
+                        // También puedes quitar el botón de volver si ya no lo necesitas
+                        $(".volver").remove();
+                      }else{
+                        toastr.error(response);
                         toastr.options.closeButton = true;
                       }
 

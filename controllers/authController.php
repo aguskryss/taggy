@@ -48,5 +48,13 @@ function cambiarUsuario($nombre, $correo, $telefono, $usuarioId){
     }
 }
 
+function cambiarContrasena($nuevaContrasena, $idUsuario){
+    global $conn;
+    $sql = "UPDATE Usuario SET clave = '$nuevaContrasena' WHERE usuarioId = '$idUsuario'";
+    $conn->exec($sql);
+
+    return "success";
+}
+
 
 ?>
