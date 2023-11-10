@@ -23,17 +23,17 @@ function registrarUsuario($nombre, $correo, $telefono, $contrasena, $confirmar_c
 function login($email, $contrasena) {
     global $conn;
 
-    $query = "SELECT email, clave, usuarioId, nombre, telefono FROM Usuario WHERE email= BINARY :mail AND clave= BINARY :password";
+    $query = "SELECT email, clave, usuarioId, nombre, telefono FROM Usuario WHERE email= '$email' AND clave= '$contrasena'";
+    $stmt = $conn->query($query);
+    $registrosUsuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    $stmt= $conn->prepare($query);
-    $stmt->bindParam(":mail", $email, PDO::PARAM_STR);
-    $stmt->bindParam(":password", $contrasena, PDO::PARAM_STR);
-
-    $resultado = $stmt->execute();
-    $registro = $stmt-> fetch(PDO::FETCH_ASSOC);
-
-    return $registro;
+    if(!$registrosUsuario) {
+        return "error";
+    } else {
+        return $registrosUsuario;
+    }
 }
+
 
 
 function cambiarUsuario($nombre, $correo, $telefono, $usuarioId){

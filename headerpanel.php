@@ -18,7 +18,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#taggys" id="enlaceTaggys" class="nav-link">
+            <a href="taggys.php" id="enlaceTaggys" class="nav-link">
               <p>Taggys</p>
             </a>
           </li>
@@ -43,3 +43,21 @@
     </div>
     <!-- /.sidebar -->
   </aside>
+
+  <script>
+$(document).ready(function(){
+    // Obtiene la URL actual
+    var currentUrl = window.location.href;
+   
+    //Itera a través de los enlaces y compara con la URL actual
+    $(".nav-sidebar a").each(function(){
+        var linkUrl = $(this).attr("href");
+
+        // Compara las URLs
+        if(currentUrl.indexOf(linkUrl) !== -1){
+            // Agrega la clase 'active' al enlace correspondiente
+            $(this).addClass("active");
+        }
+    });
+});
+</script>

@@ -18,8 +18,10 @@ if(!empty($_SESSION['activo'])){
 <body>
 
     <div class="container mt-5">
+    
         <div class="row justify-content-center">
             <div class="col-md-6">
+            <div id="mensajeRegistro" class="mb-3"></div>
                 <h2 class="text-center">Iniciar sesión</h2>
                 <form id="loginForm" method="post">
                     <div class="form-group">
@@ -32,7 +34,7 @@ if(!empty($_SESSION['activo'])){
                     </div>
                     
                     <button type="submit" class="btn btn-primary mt-3">Iniciar Sesión</button>
-                    <div id="mensajeRegistro"></div>
+                    
                 </form>
             </div>
         </div>
@@ -42,7 +44,9 @@ if(!empty($_SESSION['activo'])){
 </html>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="plugins/toastr/toastr.min.js"></script>
 <script>
+    
     $("#loginForm").submit(function(e){
     e.preventDefault();
         var formData = $("#loginForm").serialize();
@@ -51,8 +55,14 @@ if(!empty($_SESSION['activo'])){
                 url: "logica/iniciarSesion.php", // Nombre del nuevo script PHP para manejar el registro
                 data: formData,
                 success: function(response) {
-                    // Mostrar mensaje de éxito o error
-                    window.location.href = "panel";
+                    // // Mostrar mensaje de éxito o error
+                   
+                    if(response === "error"){
+                // Actualizar el contenido del elemento con el mensaje de error
+                        $("#mensajeRegistro").html("<div class='alert alert-danger'>Email o contraseña incorrectos</div>");
+                    } else {
+                        window.location.href = "panel";
+                    }
                 }
             });
         
