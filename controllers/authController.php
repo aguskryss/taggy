@@ -41,11 +41,11 @@ function cambiarUsuario($nombre, $correo, $telefono, $usuarioId){
     $sql = "UPDATE Usuario SET nombre = '$nombre', email = '$correo', telefono = '$telefono' WHERE usuarioId = '$usuarioId'";
     $numFilasAfectadas = $conn->exec($sql);
 
-    if($numFilasAfectadas > 0){
+    // if($numFilasAfectadas > 0){
         return 'success';
-    }else{
-        return 'duplicate';
-    }
+    // }else{
+    //     return 'duplicate';
+    // }
 }
 
 function cambiarContrasena($nuevaContrasena, $idUsuario){

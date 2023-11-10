@@ -113,13 +113,15 @@ require_once "includes/footer.php";
                   success: function(response) {
                       // Mostrar mensaje de éxito o error
                       //window.location.href = "panel";
-                      if(response == "success"){
-                        toastr.success('Usuario actualizado correctamente!');
+                      toastr.success('Usuario actualizado correctamente!');
                         toastr.options.closeButton = true;
-                      }else{
-                        toastr.error('ERROR');
-                        toastr.options.closeButton = true;
-                      }
+                    //   if(response == "success"){
+                    //     toastr.success('Usuario actualizado correctamente!');
+                    //     toastr.options.closeButton = true;
+                    //   }else{
+                    //     toastr.error('ERROR');
+                    //     toastr.options.closeButton = true;
+                    //   }
 
                   }
             });
@@ -142,6 +144,7 @@ require_once "includes/footer.php";
                         toastr.options.closeButton = true;
                         $(".formularioEdit").show();
                         $(".formularioContrasena").hide();
+                        $("#nuevaContrasena, #repetirContrasena").val('');
 
                         // También puedes quitar el botón de volver si ya no lo necesitas
                         $(".volver").remove();
